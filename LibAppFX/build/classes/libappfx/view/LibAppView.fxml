@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="theme" stylesheets="@libappfx.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libappfx.LibAppViewController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <MenuButton fx:id="menuFile" mnemonicParsing="false" text="%menu.title.file">
+                    <items>
+                      <MenuItem fx:id="menuItemOpen" mnemonicParsing="false" onAction="#handleFileOpen" text="%menu.title.open" />
+                      <MenuItem fx:id="menuItemSave" mnemonicParsing="false" onAction="#handleFileSave" text="%menu.title.save" />
+                        <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#handleFileSaveAs" text="%menu.title.save.as" />
+                        <MenuItem fx:id="menuItemQuit" mnemonicParsing="false" onAction="#handleQuit" text="%menu.title.quit" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="menuDvd" mnemonicParsing="false" text="DVD">
+                    <items>
+                      <MenuItem fx:id="menuItemNew" mnemonicParsing="false" onAction="#handleNewDvd" text="New" />
+                      <MenuItem fx:id="menuItemDvd" mnemonicParsing="false" onAction="#handleEditDvd" text="Edit" />
+                        <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" onAction="#handleDeleteDvd" text="Delete" />
+                    </items>
+                  </MenuButton>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <TableView fx:id="genreTableView" prefHeight="104.0" prefWidth="129.0">
+              <columns>
+                <TableColumn fx:id="genreSelectionColumn" prefWidth="75.0" text="Select Genre" />
+              </columns>
+            </TableView>
+            <VBox alignment="TOP_CENTER" prefHeight="23.0" prefWidth="370.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="40.0">
+                     <children>
+                        <Button fx:id="allGenreButton" mnemonicParsing="false" onAction="#handleAllGenre" text="All Genres" />
+                        <ImageView fitHeight="66.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/myDvds2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label text="Status:" />
+                        <TextField fx:id="messageField" editable="false" prefHeight="28.0" prefWidth="302.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </items>
+      </ToolBar>
+      <SplitPane dividerPositions="0.40635451505016723" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="myDVDTableView" prefHeight="360.0" prefWidth="239.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
+                      <TableColumn fx:id="genreColumn" prefWidth="75.0" text="Genre" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="91.0" layoutY="97.0" prefHeight="400.0" prefWidth="376.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TabPane fx:id="dvdTabPane" prefHeight="324.0" prefWidth="376.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab fx:id="dvdTab" text="DVD">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="264.0" prefWidth="376.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="88.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/myDvds.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab fx:id="detailsTab" onSelectionChanged="#handleDetailsTabSelected" text="Details">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <GridPane hgap="2.0" layoutX="42.0" layoutY="50.0" prefHeight="217.0" prefWidth="302.0" vgap="3.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="6.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="135.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="140.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label styleClass="text-dropshadow" text="Title:" GridPane.halignment="RIGHT" />
+                                                <Label styleClass="text-dropshadow" text="Genre:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                <Label styleClass="text-dropshadow" text="Duration:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                                <Label styleClass="text-dropshadow" text="Date Purchased:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                                <Label styleClass="text-dropshadow" text="Image Path:" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                                                <TextField fx:id="imagePathField" editable="false" onMouseMoved="#handleMouseMoved" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="directorField" editable="false" onKeyTyped="#handleStringField" onMouseMoved="#handleMouseMoved" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label styleClass="text-dropshadow" text="Director:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                <TextField fx:id="titleField" editable="false" onMouseMoved="#handleMouseMoved" GridPane.columnIndex="1" />
+                                                <TextField fx:id="durationField" editable="false" onKeyTyped="#handleDigitField" onMouseMoved="#handleMouseMoved" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="genreComboBox" disable="true" onMouseMoved="#handleMouseMovedGenre" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <DatePicker fx:id="datePurchasedDatePicker" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                          <HBox layoutX="46.0" layoutY="246.0" AnchorPane.rightAnchor="168.0">
+                                             <children>
+                                                <Button fx:id="okButton" layoutX="120.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleOkButton" text="Ok" visible="false" />
+                                                <Button fx:id="resetButton" layoutX="188.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleResetButton" text="Reset" visible="false" />
+                                                <Button fx:id="cancelButton" layoutX="261.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel" visible="false" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="imageTab" onSelectionChanged="#handleImageTabSelected" text="Image">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="dvdImage" fitHeight="225.0" fitWidth="300.0" layoutX="38.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="31.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
