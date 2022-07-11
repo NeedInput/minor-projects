@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_11" class="java.beans.XMLDecoder">
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>22-Sep-2002</string>
+  </void>
+  <void property="director">
+   <string>Richard Marquand</string>
+  </void>
+  <void property="duration">
+   <string>132</string>
+  </void>
+  <void property="genre">
+   <string>Fantasy</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/returnJedi.jpg</string>
+  </void>
+  <void property="title">
+   <string>Return of the Jedi</string>
+  </void>
+ </object>
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>9-Aug-2003</string>
+  </void>
+  <void property="director">
+   <string>Tim Burton</string>
+  </void>
+  <void property="duration">
+   <string>105</string>
+  </void>
+  <void property="genre">
+   <string>Fantasy</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/edwardScissorhands.jpg</string>
+  </void>
+  <void property="title">
+   <string>Edward Scissorhands</string>
+  </void>
+ </object>
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>4-Aug-2011</string>
+  </void>
+  <void property="director">
+   <string>John McTiernan</string>
+  </void>
+  <void property="duration">
+   <string>132</string>
+  </void>
+  <void property="genre">
+   <string>Action</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/dieHard.jpg</string>
+  </void>
+  <void property="title">
+   <string>Die Hard</string>
+  </void>
+ </object>
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>12-Sep-2014</string>
+  </void>
+  <void property="director">
+   <string>Tamra Davis</string>
+  </void>
+  <void property="duration">
+   <string>89</string>
+  </void>
+  <void property="genre">
+   <string>Comedy</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/billy.jpg</string>
+  </void>
+  <void property="title">
+   <string>Billy Madison</string>
+  </void>
+ </object>
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>12-Sep-2014</string>
+  </void>
+  <void property="director">
+   <string>Harold Ramis</string>
+  </void>
+  <void property="duration">
+   <string>98</string>
+  </void>
+  <void property="genre">
+   <string>Comedy</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/caddy.jpg</string>
+  </void>
+  <void property="title">
+   <string>Caddyshack</string>
+  </void>
+ </object>
+ <object class="libappfx.model.DVD">
+  <void property="datePurchased">
+   <string>30-May-2012</string>
+  </void>
+  <void property="director">
+   <string>Hayao Miyazaki</string>
+  </void>
+  <void property="duration">
+   <string>86</string>
+  </void>
+  <void property="genre">
+   <string>Fantasy</string>
+  </void>
+  <void property="imageURL">
+   <string>view/images/totoro.jpg</string>
+  </void>
+  <void property="title">
+   <string>My Neighbor Totoro</string>
+  </void>
+ </object>
+</java>
